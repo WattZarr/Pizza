@@ -21,7 +21,7 @@ class CreatePizzasTable extends Migration
             $table->integer('mediumPrice');
             $table->integer('LargePrice');
             $table->text('catagory');
-            $table->text('imgae');
+            $table->text('image');
             $table->timestamps();
         });
     }

@@ -12,6 +12,13 @@
                       <li class="list-group-item">View</li>
                       <li class="list-group-item">Create</li>
                     </ul>
+                    @if(count($errors)>0)
+                        @foreach($errors->all() as $error)
+                            <div class="alert alert-danger">
+                            <p>{{$error}}</p>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -19,15 +26,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Pizza</div>
-                @if(count($errors)>0)
-                    @foreach($errors->all() as $error)
-                        <div class="alert alert-danger">
-                        <p>{{$error}}</p>
-                        </div>
-                    @endforeach
-                @endif
+
                 <div class="card-body">
-                <form action="{{route('createPizza')}}" method="post">
+                <form action="{{route('createPizza')}}" method="post" enctype="multipart/form-data">
                 @csrf
                       <div class="form-group">
                         <label for="name">Name</label>
