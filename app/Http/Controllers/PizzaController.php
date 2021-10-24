@@ -24,6 +24,6 @@ class PizzaController extends Controller
             'image' => $path,
         ]);
 
-        return view('pizza.pizzaList');
+        return view('pizza.pizzaList')->with('message','Pizza is created Successfully!');
     }
 }
