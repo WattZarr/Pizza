@@ -13,7 +13,9 @@ class PizzaController extends Controller
     }
 
     public function createPizza(PizzaStoreRequest $request){
-        $path = $request->image->store('public/pizza');
+        $file = $request->file('image');
+        $filename = uniqid()."_".$file->getClientOriginalName();
+        $file->move(public_path().'/pizza/',$filename);
         Pizza::create([
             'name' => $request->name,
             'description' => $request->description,
@@ -21,9 +23,15 @@ class PizzaController extends Controller
             'mediumPrice' => $request->mediumPrice,
             'largePrice' => $request->largePrice,
             'catagory' => $request->catagory,
-            'image' => $path,
+            'image' => $filename,
         ]);
 
-        return view('pizza.pizzaList')->with('message','Pizza is created Successfully!');
+        return redirect('pizzaList')->with('message','Pizza is created Successfully!');
+
+    }
+
+    public function pizzaList(){
+        $pizzas = Pizza::get();
+        return view('pizza.pizzaList')->with('pizzas',$pizzas);
     }
 }

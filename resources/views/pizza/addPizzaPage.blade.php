@@ -9,8 +9,8 @@
 
                 <div class="card-body">
                     <ul class="list-group">
-                      <li class="list-group-item">View</li>
-                      <li class="list-group-item">Create</li>
+                      <a href="{{route('pizzaList')}}"><li class="list-group-item">View</li></a>
+                      <a href="{{route('addPizza')}}"><li class="list-group-item">Create</li></a>
                     </ul>
                     @if(count($errors)>0)
                         @foreach($errors->all() as $error)
