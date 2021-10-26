@@ -34,4 +34,10 @@ class PizzaController extends Controller
         $pizzas = Pizza::get();
         return view('pizza.pizzaList')->with('pizzas',$pizzas);
     }
+
+    //edit pizza page
+    public function editPage($id){
+        $pizza = Pizza::find($id);
+        return view('pizza.editPage')->with('pizza',$pizza);
+    }
 }

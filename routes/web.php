@@ -23,3 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/addPizza','PizzaController@addPizza')->name('addPizza');
 Route::post('/createPizza','PizzaController@createPizza')->name('createPizza');
 Route::get('/pizzaList','PizzaController@pizzaList')->name('pizzaList');
+
+//edit pizza form
+Route::get('editPage/{id}','PizzaController@editPage')->name('editPage');

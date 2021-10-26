@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Pizza List</div>
 
@@ -13,7 +13,6 @@
                             {{ session('message') }}
                         </div>
                     @endif
-
                     <table class="table table-hover">
                       <thead>
                         <tr>
@@ -36,6 +35,8 @@
                           <td>{{$pizza->mediumPrice}}</td>
                           <td>{{$pizza->LargePrice}}</td>
                           <td>{{$pizza->catagory}}</td>
+                          <td><a href="{{route('editPage',$pizza->id)}}"><button class="btn btn-primary">Edit</button></a></td>
+                          <td><a href="#"><button class="btn btn-danger">Delete</button></a></td>
                         </tr>
                         @endforeach
                       </tbody>
