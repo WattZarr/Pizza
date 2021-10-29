@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Pizza List</div>
+                <div class="card-header">Pizza List
+                <a href="{{route('addPizza')}}"><button class="btn btn-secondary" style="float:right">Add Pizza</button></a>
+                </div>
 
                 <div class="card-body">
                     @if (session('message'))

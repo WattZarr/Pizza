@@ -73,4 +73,5 @@ class PizzaController extends Controller
         Pizza::find($id)->delete();
         return redirect('pizzaList')->with('deleteSuccess','Pizza is deleted Successfully!');
     }
+
 }

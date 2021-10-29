@@ -18,17 +18,19 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::group(['middleware' => [auth::class,admin::class]],function(){
+    Route::get('/home','PizzaController@pizzaList')->name('home');
+    Route::get('/addPizza','PizzaController@addPizza')->name('addPizza');
+    Route::post('/createPizza','PizzaController@createPizza')->name('createPizza');
+    Route::get('/pizzaList','PizzaController@pizzaList')->name('pizzaList');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/addPizza','PizzaController@addPizza')->name('addPizza');
-Route::post('/createPizza','PizzaController@createPizza')->name('createPizza');
-Route::get('/pizzaList','PizzaController@pizzaList')->name('pizzaList');
+    //edit pizza form
+    Route::get('editPage/{id}','PizzaController@editPage')->name('editPage');
 
-//edit pizza form
-Route::get('editPage/{id}','PizzaController@editPage')->name('editPage');
+    //edit pizza
+    Route::post('editPizza/{id}','PizzaController@editPizza')->name('editPizza');
 
-//edit pizza
-Route::post('editPizza/{id}','PizzaController@editPizza')->name('editPizza');
+    //delete Pizza
+    Route::get('deletePizza/{id}','PizzaController@deletePizza')->name('deletePizza');
 
-//delete Pizza
-Route::get('deletePizza/{id}','PizzaController@deletePizza')->name('deletePizza');
+});
