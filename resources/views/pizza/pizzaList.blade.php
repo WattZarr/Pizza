@@ -13,6 +13,16 @@
                             {{ session('message') }}
                         </div>
                     @endif
+                    @if (session('EditSuccess'))
+                        <div class="alert alert-success">
+                            {{ session('EditSuccess') }}
+                        </div>
+                    @endif
+                    @if (session('deleteSuccess'))
+                        <div class="alert alert-danger">
+                            {{ session('deleteSuccess') }}
+                        </div>
+                    @endif
                     <table class="table table-hover">
                       <thead>
                         <tr>
@@ -36,7 +46,31 @@
                           <td>{{$pizza->LargePrice}}</td>
                           <td>{{$pizza->catagory}}</td>
                           <td><a href="{{route('editPage',$pizza->id)}}"><button class="btn btn-primary">Edit</button></a></td>
-                          <td><a href="#"><button class="btn btn-danger">Delete</button></a></td>
+                          <td><button class="btn btn-danger" data-toggle="modal" data-target="#delete{{$pizza->id}}" >Delete</button></td>
+
+                          <div class="modal fade" id="delete{{$pizza->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <form action="{{route('deletePizza',$pizza->id)}}" method="get">
+                                @csrf
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Are you sure you want to delete?This action can't be undone.
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                  </div>
+                                </div>
+                                </form>
+                              </div>
+                            </div>
+
                         </tr>
                         @endforeach
                       </tbody>

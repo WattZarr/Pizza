@@ -26,3 +26,9 @@ Route::get('/pizzaList','PizzaController@pizzaList')->name('pizzaList');
 
 //edit pizza form
 Route::get('editPage/{id}','PizzaController@editPage')->name('editPage');
+
+//edit pizza
+Route::post('editPizza/{id}','PizzaController@editPizza')->name('editPizza');
+
+//delete Pizza
+Route::get('deletePizza/{id}','PizzaController@deletePizza')->name('deletePizza');

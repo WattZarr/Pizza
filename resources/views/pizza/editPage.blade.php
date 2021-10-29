@@ -7,9 +7,15 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Edit Pizza</div>
-
+                @if(count($errors)>0)
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger">
+                        <p>{{$error}}</p>
+                        </div>
+                    @endforeach
+                @endif
                 <div class="card-body">
-                <form action="{{route('createPizza')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('editPizza',$pizza->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                       <div class="form-group">
                         <label for="name">Name</label>
