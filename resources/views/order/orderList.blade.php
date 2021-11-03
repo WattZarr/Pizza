@@ -37,6 +37,7 @@
                       <th scope="col">Small Pizza</th>
                       <th scope="col">Medium Pizza</th>
                       <th scope="col">Large Pizza</th>
+                      <th scope="col">Total $</th>
                       <th scope="col">Message</th>
                       <th scope="col">Status</th>
                     </tr>
@@ -51,6 +52,7 @@
                       <td>{{$item->smallPizza}}</td>
                       <td>{{$item->mediumPizza}}</td>
                       <td>{{$item->largePizza}}</td>
+                      <td>${{($item->smallPizza*$item->smallPrice)+($item->mediumPizza*$item->mediumPrice)+($item->largePizza*$item->LargePrice)}}</td>
                       <td>{{$item->body}}</td>
                       <td>{{$item->status}}</td>
                       <form action="{{route('changeStatus',$item->id)}}" method="post">

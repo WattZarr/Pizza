@@ -40,3 +40,5 @@ Route::group(['middleware' => [auth::class,admin::class]],function(){
     Route::post('changeStatus/{id}','OrderController@changeStatus')->name('changeStatus');
 
 });
+
+Route::get('user','UserController@userPage')->name('user');
