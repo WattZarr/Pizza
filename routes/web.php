@@ -33,4 +33,10 @@ Route::group(['middleware' => [auth::class,admin::class]],function(){
     //delete Pizza
     Route::get('deletePizza/{id}','PizzaController@deletePizza')->name('deletePizza');
 
+    //users' order
+    Route::get('userOrderPage','UserController@orderPage')->name('userOrderPage');
+
+    //change order status
+    Route::post('changeStatus/{id}','OrderController@changeStatus')->name('changeStatus');
+
 });

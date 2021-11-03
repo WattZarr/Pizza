@@ -11,6 +11,7 @@
                     <ul class="list-group">
                       <a href="{{route('pizzaList')}}"><li class="list-group-item">View</li></a>
                       <a href="{{route('addPizza')}}"><li class="list-group-item">Create</li></a>
+                      <a href="{{route('userOrderPage')}}"><li class="list-group-item">Users' order</li></a>
                     </ul>
                     @if(count($errors)>0)
                         @foreach($errors->all() as $error)
