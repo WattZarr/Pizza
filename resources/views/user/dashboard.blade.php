@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="dropdown">
+    <div class="dropdown1">
       <button class="btn btn-info dropdown-toggle" type="button" id="catagory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Pizza Catagory
       </button>
@@ -40,7 +40,7 @@
                               <div class="card-body">
                                 <h5 class="card-title">{{$pizza->pizza_name}}</h5>
                                 <p class="card-text">{{$pizza->description}}</p>
-                                <a href="#" class="btn btn-danger">Order Now</a>
+                                <a href="{{route('pizzaDetails',$pizza->id)}}"><button class="order btn btn-danger">Order Now</button></a>
                               </div>
                             </div>
                         </div>

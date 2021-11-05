@@ -21,4 +21,10 @@ class UserController extends Controller
         $pizzas = Pizza::latest()->get();
         return view('user.dashboard')->with('pizzas',$pizzas);
     }
+
+    //pizza Details Page
+    public function pizzaDetailsPage($id){
+        $pizza = Pizza::where('id',$id)->get();
+        return view('user.pizzaDetailsPage')->with('pizza',$pizza);
+    }
 }

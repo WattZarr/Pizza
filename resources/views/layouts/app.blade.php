@@ -22,6 +22,7 @@
     <style>
     .container{
         margin-left:65px;
+        scroll-behavior: smooth;
     }
 
     .card-header{
@@ -44,22 +45,59 @@
         height:150px;
     }
 
-    .dropdown{
+    .dropdown1{
+        display:none;
+    }
+
+    .details{
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .orderImage{
+        display: block;
+        width: 517px;
+        height: 44vh;
+        margin: 10px auto;
+    }
+
+    .mobile_container{
         display:none;
     }
 
     @media(max-width:700px){
         .container{
             margin:10px auto;
+            scroll-behavior: smooth;
         }
 
         .drop_down{
             display:none;
         }
 
-        .dropdown{
+        .dropdown1{
             display:block;
             margin-bottom:10px;
+        }
+
+        .order{
+            margin-left:54px;
+        }
+
+        .mobile_container{
+            display:block;
+        }
+
+        .mobileImage{
+            width:300px;
+        }
+
+        span{
+            color:red;
+        }
+
+        h5{
+            padding-top:5px;
         }
 
 

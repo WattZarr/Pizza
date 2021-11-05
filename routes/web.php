@@ -12,10 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','UserController@userDashboard')->name('/');
 
 Auth::routes();
 Route::group(['middleware' => [auth::class,admin::class]],function(){
@@ -42,3 +39,6 @@ Route::group(['middleware' => [auth::class,admin::class]],function(){
 });
 
 Route::get('userDashboard','UserController@userDashboard')->name('userDashboard');
+
+//pizza Details page
+Route::get('pizzaDetails/{id}','UserController@pizzaDetailsPage')->name('pizzaDetails');
