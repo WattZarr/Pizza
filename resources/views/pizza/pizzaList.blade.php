@@ -63,7 +63,7 @@
                       @foreach($pizzas as $pizza)
                         <tr>
                           <td><img src="{{asset('pizza/'.$pizza->image)}}" width="80"></td>
-                          <td>{{$pizza->name}}</td>
+                          <td>{{$pizza->pizza_name}}</td>
                           <td>{{$pizza->description}}</td>
                           <td>{{$pizza->smallPrice}}</td>
                           <td>{{$pizza->mediumPrice}}</td>

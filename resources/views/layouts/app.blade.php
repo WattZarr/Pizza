@@ -23,6 +23,47 @@
     .container{
         margin-left:65px;
     }
+
+    .card-header{
+        background: red;
+        color: white;
+        font-size: 28px;
+    }
+
+    .list-group-item:hover{
+        background:red;
+        color:white;
+        border-style:solid;
+        border-width:0 0 0 10px;
+        border-color:black;
+    }
+
+    .card-img-top{
+        display:inline-block;
+        width:100%;
+        height:150px;
+    }
+
+    .dropdown{
+        display:none;
+    }
+
+    @media(max-width:700px){
+        .container{
+            margin:10px auto;
+        }
+
+        .drop_down{
+            display:none;
+        }
+
+        .dropdown{
+            display:block;
+            margin-bottom:10px;
+        }
+
+
+    }
     </style>
 
 </head>

@@ -24,7 +24,7 @@ class PizzaStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'pizza_name' => 'required',
             'description' => 'required',
             'smallPrice' => 'required',
             'mediumPrice' => 'required',

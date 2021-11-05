@@ -41,4 +41,4 @@ Route::group(['middleware' => [auth::class,admin::class]],function(){
 
 });
 
-Route::get('user','UserController@userPage')->name('user');
+Route::get('userDashboard','UserController@userDashboard')->name('userDashboard');

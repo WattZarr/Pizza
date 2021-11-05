@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Pizza;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -16,7 +17,8 @@ class UserController extends Controller
        return view('order.orderList')->with(['order' => $orders]);
     }
 
-    public function userPage(){
-        return view('user.dashboard');
+    public function userDashboard(){
+        $pizzas = Pizza::latest()->get();
+        return view('user.dashboard')->with('pizzas',$pizzas);
     }
 }

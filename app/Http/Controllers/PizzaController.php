@@ -18,7 +18,7 @@ class PizzaController extends Controller
         $filename = uniqid()."_".$file->getClientOriginalName();
         $file->move(public_path().'/pizza/',$filename);
         Pizza::create([
-            'name' => $request->name,
+            'pizza_name' => $request->pizza_name,
             'description' => $request->description,
             'smallPrice' => $request->smallPrice,
             'mediumPrice' => $request->mediumPrice,
@@ -55,7 +55,7 @@ class PizzaController extends Controller
             $filename = $imageData[0]->image;
         }
         $data = [
-            'name' => $request->name,
+            'pizza_name' => $request->pizza_name,
             'description' => $request->description,
             'smallPrice' => $request->smallPrice,
             'mediumPrice' => $request->mediumPrice,

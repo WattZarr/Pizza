@@ -33,7 +33,7 @@
                 @csrf
                       <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name">
+                        <input type="text" class="form-control" name="pizza_name" placeholder="Name">
                       </div>
                       <div class="form-group">
                             <label for="description">Description</label>

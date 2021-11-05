@@ -19,7 +19,7 @@
                 @csrf
                       <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name" value="{{$pizza->name}}">
+                        <input type="text" class="form-control" name="pizza_name" placeholder="Name" value="{{$pizza->pizza_name}}">
                       </div>
                       <div class="form-group">
                             <label for="description">Description</label>
