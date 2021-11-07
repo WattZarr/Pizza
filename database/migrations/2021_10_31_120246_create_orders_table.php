@@ -16,13 +16,13 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('date');
-            $table->string('time');
+            $table->string('date')->nullable();
+            $table->string('time')->nullable();
             $table->integer('pizza_id');
             $table->string('smallPizza')->default(0);
             $table->string('mediumPizza')->default(0);
             $table->string('largePizza')->default(0);
-            $table->text('body');
+            $table->text('body')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();
         });

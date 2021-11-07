@@ -27,4 +27,27 @@ class UserController extends Controller
         $pizza = Pizza::where('id',$id)->get();
         return view('user.pizzaDetailsPage')->with('pizza',$pizza);
     }
+
+    //order Pizza
+    public function orderPizza(REQUEST $request){
+        if($request->smallPizza == 0 && $request->mediumPizza == 0 && $request->largePizza == 0){
+            return back()->with('message','You must al least order one pizza');
+        }
+
+        if($request->smallPizza < 0 || $request->mediumPizza < 0 || $request->largePizza < 0){
+            return back()->with('message','Please Enter valid amount of pizza');
+        }
+
+        Order::create([
+            'user_id' => auth()->user()->id,
+            'pizza_id' => $request->pizza_id,
+            'date' => $request->date,
+            'time' => $request->time,
+            'smallPizza' => $request->smallPizza,
+            'mediumPizza' => $request->mediumPizza,
+            'largePizza' => $request->largePizza,
+            'body' => $request->body,
+        ]);
+        return back()->with('success','Your order is placed.');
+    }
 }

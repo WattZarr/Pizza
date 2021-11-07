@@ -64,6 +64,11 @@
     .mobile_container{
         display:none;
     }
+    .controlWidth{
+        display:inline-block;
+        width:40%;
+    }
+
 
     @media(max-width:700px){
         .container{
@@ -89,7 +94,7 @@
         }
 
         .mobileImage{
-            width:300px;
+            width:320px;
         }
 
         span{

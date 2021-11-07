@@ -11,17 +11,30 @@
                     <div class="card-header">User Order Profile</div>
 
                     <div class="card-body">
-                        <p>Name:{{auth()->user()->name}}</p>
-                        <p>Email:{{auth()->user()->email}}</p>
-                        <form action="#" method="post">
-                            <p>Phone Number:<input type="number" name="phone" placeholder="phone Number"></p>
+                        <p><span class="controlWidth">Name:</span>{{auth()->user()->name}}</p>
+                        <p><span class="controlWidth">Email:</span>{{auth()->user()->email}}</p>
+                        <form action="{{route('orderPizza')}}" method="post">
+                        @csrf
+                            <p><span class="controlWidth">Phone Number:</span><input type="number" name="phone" placeholder="phone Number" required></p>
 
                             <p>Small Pizza Amount<input type="number" name="smallPizza" value="0"></p>
                             <p>Medium Pizza Amount<input type="number" name="mediumPizza" value="0"></p>
                             <p>Large Pizza Amount<input type="number" name="largePizza" value="0"></p>
-
-                            <button type="submit" class="btn btn-danger ml-5">Order</button>
+                            <textarea name="body" cols="30" rows="3" placeholder="Write some messge if you want to tell us something about your pizza"></textarea>
+                            <p class="text-center"><button type="submit" class="btn btn-danger ml-5">Order</button></p>
+                            <input type="hidden" name="pizza_id" value="{{$pizza[0]->id}}">
                         </form>
+                        @if (session('message'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
                 @else
@@ -31,6 +44,7 @@
 
         <div class="drop_down col-md-8">
             <div class="details">
+                <h3 class="card-header">Details</h3>
                 <img src="{{asset('pizza/'.$pizza[0]->image)}}" class="orderImage">
                 <div style="margin-left:83px;">
                 <h4>{{$pizza[0]->pizza_name}}</h4>
@@ -46,7 +60,7 @@
         <!-- For Mobile -->
         <div class="mobile_container">
         <h3>Details</h3>
-            <div class="card ml-4 mt-3" style="width: 18rem;">
+            <div class="card ml-4 mt-3" style="width:320px;">
               <img class="mobileImage card-img-top" src="{{asset('pizza/'.$pizza[0]->image)}}" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">{{$pizza[0]->pizza_name}}</h5>
@@ -65,15 +79,28 @@
                     <div class="card-body">
                         <p><span class="controlWidth">Name:</span>{{auth()->user()->name}}</p>
                         <p><span class="controlWidth">Email:</span>{{auth()->user()->email}}</p>
-                        <form action="#" method="post">
-                            <p><span class="controlWidth">Phone Number:</span><input type="number" name="phone" placeholder="phone Number"></p>
+                        <form action="{{route('orderPizza')}}" method="post">
+                        @csrf
+                            <p><span class="controlWidth">Phone Number:</span><input type="number" name="phone" placeholder="phone Number" required></p>
 
                             <p>Small Pizza Amount<input type="number" name="smallPizza" value="0"></p>
                             <p>Medium Pizza Amount<input type="number" name="mediumPizza" value="0"></p>
                             <p>Large Pizza Amount<input type="number" name="largePizza" value="0"></p>
-
+                            <textarea name="body" cols="30" rows="3" placeholder="Write anything you want about your pizza"></textarea>
+                            <input type="hidden" name="pizza_id" value="{{$pizza[0]->id}}">
                             <button type="submit" class="alignLeft btn btn-danger">Order</button>
                         </form>
+                        @if (session('message'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
                 @else

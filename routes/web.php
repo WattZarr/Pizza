@@ -42,3 +42,6 @@ Route::get('userDashboard','UserController@userDashboard')->name('userDashboard'
 
 //pizza Details page
 Route::get('pizzaDetails/{id}','UserController@pizzaDetailsPage')->name('pizzaDetails');
+
+//order pizza
+Route::post('orderPizza','UserController@orderPizza')->name('orderPizza');
