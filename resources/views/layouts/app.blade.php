@@ -100,6 +100,15 @@
             padding-top:5px;
         }
 
+        .controlWidth{
+            display:inline-block;
+            width:40%;
+        }
+
+        .alignLeft{
+            margin-left:123px;
+        }
+
 
     }
     </style>

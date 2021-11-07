@@ -46,38 +46,43 @@
         <!-- For Mobile -->
         <div class="mobile_container">
         <h3>Details</h3>
-            <img src="{{asset('pizza/'.$pizza[0]->image)}}" class="mobileImage">
-            <h4><span>Pizza Name</span>:{{$pizza[0]->pizza_name}}</h4>
-            <h5>{{$pizza[0]->description}}</h5>
-            <h5><span>Small Pizza Price</span> : {{$pizza[0]->smallPrice}}  $</h5>
-            <h5><span>Medium Pizza Price</span> : {{$pizza[0]->mediumPrice}}  $</h5>
-            <h5><span>Large Pizza Price</span> : {{$pizza[0]->LargePrice}}  $</h5>
-            <a href="{{route('userDashboard')}}"><button class="btn btn-info">Back</button></a>
+            <div class="card ml-4 mt-3" style="width: 18rem;">
+              <img class="mobileImage card-img-top" src="{{asset('pizza/'.$pizza[0]->image)}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{$pizza[0]->pizza_name}}</h5>
+                <p class="card-text">{{$pizza[0]->description}}</p>
+                <p class="card-text"><span>Small Pizza Price</span> : {{$pizza[0]->smallPrice}}  $</p>
+                <p class="card-text"><span>Medium Pizza Price</span> : {{$pizza[0]->mediumPrice}}  $</p>
+                <p class="card-text"><span>Large Pizza Price</span> : {{$pizza[0]->LargePrice}}  $</p>
+                <a href="{{route('userDashboard')}}" class="btn btn-info">Back</a>
+              </div>
+            </div>
+
+            <div class="card-header mt-5">Order Form</div>
+            @if(Auth::check())
+            <div class="card">
+
+                    <div class="card-body">
+                        <p><span class="controlWidth">Name:</span>{{auth()->user()->name}}</p>
+                        <p><span class="controlWidth">Email:</span>{{auth()->user()->email}}</p>
+                        <form action="#" method="post">
+                            <p><span class="controlWidth">Phone Number:</span><input type="number" name="phone" placeholder="phone Number"></p>
+
+                            <p>Small Pizza Amount<input type="number" name="smallPizza" value="0"></p>
+                            <p>Medium Pizza Amount<input type="number" name="mediumPizza" value="0"></p>
+                            <p>Large Pizza Amount<input type="number" name="largePizza" value="0"></p>
+
+                            <button type="submit" class="alignLeft btn btn-danger">Order</button>
+                        </form>
+                    </div>
+                </div>
+                @else
+                    <p style="padding:10px;">You must log in to your account to make an order</p>
+                    <a href="{{route('login')}}"><p style="padding:10px 15px;">Click here to login.</p></a>
+                @endif
         </div>
 
-        <div class="card-header mt-5">Order Form</div>
-        @if(Auth::check())
-        <div class="card">
-                <div class="card-header">User Order Profile</div>
 
-                <div class="card-body">
-                    <p>Name:{{auth()->user()->name}}</p>
-                    <p>Email:{{auth()->user()->email}}</p>
-                    <form action="#" method="post">
-                        <p>Phone Number:<input type="number" name="phone" placeholder="phone Number"></p>
-
-                        <p>Small Pizza Amount<input type="number" name="smallPizza" value="0"></p>
-                        <p>Medium Pizza Amount<input type="number" name="mediumPizza" value="0"></p>
-                        <p>Large Pizza Amount<input type="number" name="largePizza" value="0"></p>
-
-                        <button type="submit" class="btn btn-danger ml-5">Order</button>
-                    </form>
-                </div>
-            </div>
-            @else
-                <p style="padding:10px;">You must log in to your account to make an order</p>
-                <a href="{{route('login')}}"><p style="padding:10px 15px;">Click here to login.</p></a>
-            @endif
     </div>
 </div>
 
