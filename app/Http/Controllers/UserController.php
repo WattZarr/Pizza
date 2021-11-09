@@ -17,9 +17,16 @@ class UserController extends Controller
        return view('order.orderList')->with(['order' => $orders]);
     }
 
-    public function userDashboard(){
-        $pizzas = Pizza::latest()->get();
-        return view('user.dashboard')->with('pizzas',$pizzas);
+    public function userDashboard(REQUEST $request){
+        if(!$request->catagory){
+            $pizzas = Pizza::latest()->get();
+            return view('user.dashboard')->with('pizzas',$pizzas);
+        }
+        else{
+            $pizzas = Pizza::where('catagory',$request->catagory)->get();
+            return view('user.dashboard')->with('pizzas',$pizzas);
+        }
+
     }
 
     //pizza Details Page

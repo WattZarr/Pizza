@@ -7,8 +7,10 @@
         Pizza Catagory
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Normal Pizza</a>
-        <a class="dropdown-item" href="#">Customize Pizza</a>
+      <form action="{{route('userDashboard')}}" method="get">
+       <input type="submit" name="catagory" value="normal" class="dropdown-item">
+       <input type="submit" name="catagory" value="customize" class="dropdown-item">
+       </form>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -19,8 +21,10 @@
 
                 <div class="card-body">
                 <ul class="list-group">
-                      <li class="list-group-item">Catogory1</li>
-                      <li class="list-group-item">Catagory2</li>
+                <form action="{{route('userDashboard')}}" method="get">
+                     <input type="submit" name="catagory" value="normal" class="list-group-item">
+                     <input type="submit" name="catagory" value="customize" class="list-group-item">
+                    </form>
                     </ul>
                 </div>
             </div>

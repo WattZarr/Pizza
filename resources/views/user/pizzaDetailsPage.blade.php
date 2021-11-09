@@ -39,6 +39,10 @@
                 </div>
                 @else
                     <a href="{{route('login')}}">You need to log in first to make an order.Click here to login.</a>
+                    <br>
+                    <br>
+                   <p><a href="{{route('register')}}">If you are new to this website,click here to register your account first</a></p>
+                    <p style="color:red;font-size:large;">You can log in only when you have already created your account.</p>
                 @endif
         </div>
 
@@ -106,6 +110,8 @@
                 @else
                     <p style="padding:10px;">You must log in to your account to make an order</p>
                     <a href="{{route('login')}}"><p style="padding:10px 15px;">Click here to login.</p></a>
+                    <a href="{{route('register')}}">If you are new to this webiste,click here to register your account first.</a>
+                    <p style="color:red;font-size:large;">You can log in only when you have already created your account.</p>
                 @endif
         </div>
 
